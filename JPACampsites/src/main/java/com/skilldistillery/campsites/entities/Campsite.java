@@ -1,14 +1,15 @@
 package com.skilldistillery.campsites.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Campsite {
@@ -20,6 +21,13 @@ public class Campsite {
 	private String name;
 
 	private String description;
+	
+	@OneToOne
+	@JoinColumn(name="location_id")
+	private Location location;
+	
+	@OneToMany(mappedBy="campsite")
+	private List <Comment> comment;
 
 	public Campsite() {
 		super();
@@ -47,6 +55,22 @@ public class Campsite {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public List<Comment> getComment() {
+		return comment;
+	}
+
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
 	}
 
 	@Override

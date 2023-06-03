@@ -7,6 +7,8 @@
     
     <!-- begin entities  -->
     <class>com.skilldistillery.campsites.entities.Campsite</class>
+    <class>com.skilldistillery.campsites.entities.Comment</class>
+    <class>com.skilldistillery.campsites.entities.Location</class>
  
 
     <!-- end entities -->
