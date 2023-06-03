@@ -1,12 +1,12 @@
 package com.skilldistillery.campsites.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.campsites.entities.Campsite;
+import com.skilldistillery.campsites.entities.Location;
 import com.skilldistillery.campsites.repositories.CampsiteRepository;
 
 @Service
@@ -28,18 +28,25 @@ public class CampsiteServiceImpl implements CampsiteService {
 
 	@Override
 	public Campsite create(Campsite campsite) {
+		campsite.getLocation().setId(1);
+		System.out.println("Id here *****************" + campsite.getId() + campsite.getLocation().getId());
 		return repo.saveAndFlush(campsite);
 	}
 
 	@Override
-	public Campsite update(int id, Campsite campsite) {
-		Campsite updateCampsite = repo.findById(id); 
+	public Campsite update(int id, Campsite campsite,Location location) {
+		Campsite updateCampsite = repo.findById(id);
 		
 		if(updateCampsite != null) {			
 		updateCampsite.setName(campsite.getName());
 		updateCampsite.setDescription(campsite.getDescription());
 		updateCampsite.setVisitDate(campsite.getVisitDate());
 		updateCampsite.setPictureUrl(campsite.getPictureUrl());
+		updateCampsite.getLocation().setId(1);
+		updateCampsite.getLocation().setCity(location.getCity());
+		updateCampsite.getLocation().setState(location.getState());
+		updateCampsite.getLocation().setTerrain(location.getTerrain());
+	    
 		return repo.saveAndFlush(updateCampsite);
 		}
 		

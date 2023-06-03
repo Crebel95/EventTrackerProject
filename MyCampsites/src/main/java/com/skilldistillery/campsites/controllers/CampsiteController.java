@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.campsites.entities.Campsite;
+import com.skilldistillery.campsites.entities.Location;
 import com.skilldistillery.campsites.services.CampsiteService;
 
 @RestController
@@ -47,8 +48,8 @@ public class CampsiteController {
 	}
 	
 	@PutMapping("campsites/{id}")
-	public Campsite updateCampsite(@RequestBody Campsite campsite, @PathVariable Integer id, HttpServletResponse resp) {
-		Campsite updated = campService.update(id, campsite);
+	public Campsite updateCampsite(@RequestBody Campsite campsite,Location location, @PathVariable Integer id, HttpServletResponse resp) {
+		Campsite updated = campService.update(id, campsite, location);
 		return updated;
 	}
 
