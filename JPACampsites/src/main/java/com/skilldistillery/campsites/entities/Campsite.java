@@ -7,15 +7,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Campsite {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String description;
 
 	public Campsite() {
@@ -67,7 +70,5 @@ public class Campsite {
 		Campsite other = (Campsite) obj;
 		return id == other.id;
 	}
-	
-	
 
 }

@@ -32,8 +32,7 @@ public class CampsiteServiceImpl implements CampsiteService {
 
 	@Override
 	public Campsite create(Campsite campsite) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.saveAndFlush(campsite);
 	}
 
 	@Override

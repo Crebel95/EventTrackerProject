@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +32,15 @@ public class CampsiteController {
 		Campsite site = campService.getCampsite(id);
 		if(site == null) {
 			res.setStatus(404);
+		}
+		return site;
+	}
+	
+	@PostMapping("campsites")
+	public Campsite create(@RequestBody Campsite campsite, HttpServletResponse resp) {
+		Campsite site = campService.create(campsite);
+		if(site != null) {
+			resp.setStatus(201);
 		}
 		return site;
 	}
