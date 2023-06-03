@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ public class CampsiteController {
 	}
 	
 	@GetMapping("campsites/{id}")
-	public Campsite getSite(@PathVariable Integer id, HttpServletResponse res) {
+	public Campsite getCampsite(@PathVariable Integer id, HttpServletResponse res) {
 		Campsite site = campService.getCampsite(id);
 		if(site == null) {
 			res.setStatus(404);
@@ -37,12 +38,18 @@ public class CampsiteController {
 	}
 	
 	@PostMapping("campsites")
-	public Campsite create(@RequestBody Campsite campsite, HttpServletResponse resp) {
+	public Campsite createCampsite(@RequestBody Campsite campsite, HttpServletResponse resp) {
 		Campsite site = campService.create(campsite);
 		if(site != null) {
 			resp.setStatus(201);
 		}
 		return site;
+	}
+	
+	@PutMapping("campsites/{id}")
+	public Campsite updateCampsite(@RequestBody Campsite campsite, @PathVariable Integer id, HttpServletResponse resp) {
+		Campsite updated = campService.update(id, campsite);
+		return updated;
 	}
 
 }

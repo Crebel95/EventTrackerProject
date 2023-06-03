@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Comment {
 	
@@ -23,6 +25,7 @@ public class Comment {
 	@Column(name="comment_date")
 	private LocalDateTime commentDate;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="campsite_id")
 	private Campsite campsite;

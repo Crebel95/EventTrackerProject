@@ -1,9 +1,11 @@
 package com.skilldistillery.campsites.entities;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Campsite {
@@ -22,6 +26,12 @@ public class Campsite {
 	private String name;
 
 	private String description;
+	
+	@Column(name="visit_date")
+	private Date visitDate;
+	
+	@Column(name="picture_url")
+	private String pictureUrl;
 	
 	@OneToOne
 	@JoinColumn(name="location_id")
@@ -56,6 +66,22 @@ public class Campsite {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Date getVisitDate() {
+		return visitDate;
+	}
+
+	public void setVisitDate(Date visitDate) {
+		this.visitDate = visitDate;
+	}
+
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}
 
 	public Location getLocation() {

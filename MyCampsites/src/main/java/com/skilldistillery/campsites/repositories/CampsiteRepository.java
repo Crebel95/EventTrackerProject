@@ -6,6 +6,6 @@ import com.skilldistillery.campsites.entities.Campsite;
 
 public interface CampsiteRepository extends JpaRepository<Campsite, Integer> {
 	
-	
+	Campsite findById(int id);
 
 }

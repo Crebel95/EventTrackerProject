@@ -22,11 +22,7 @@ public class CampsiteServiceImpl implements CampsiteService {
 
 	@Override
 	public Campsite getCampsite(int id) {
-		Campsite site = null;
-		Optional<Campsite> siteOpt = repo.findById(id);
-		if(siteOpt.isPresent()) {
-			site = siteOpt.get();
-		}
+		Campsite site = repo.findById(id);
 		return site;
 	}
 
@@ -37,7 +33,17 @@ public class CampsiteServiceImpl implements CampsiteService {
 
 	@Override
 	public Campsite update(int id, Campsite campsite) {
-		// TODO Auto-generated method stub
+		Campsite updateCampsite = repo.findById(id); 
+		
+		if(updateCampsite != null) {			
+		updateCampsite.setName(campsite.getName());
+		updateCampsite.setDescription(campsite.getDescription());
+		updateCampsite.setVisitDate(campsite.getVisitDate());
+		updateCampsite.setPictureUrl(campsite.getPictureUrl());
+		return repo.saveAndFlush(updateCampsite);
+		}
+		
+		
 		return null;
 	}
 
