@@ -46,4 +46,9 @@ class CampsiteTest {
 		assertEquals("Flagstaff",camp.getName());
 	}
 
+	@Test
+	void test_cmapsite_location_relationship() {
+		assertNotNull(camp);
+		assertEquals("Flagstaff",camp.getLocation().getCity());
+	}
 }
