@@ -1,5 +1,6 @@
 package com.skilldistillery.campsites.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,7 +28,7 @@ public class Campsite {
 	private Location location;
 	
 	@OneToMany(mappedBy="campsite")
-	private List <Comment> comment;
+	private List <Comment> comments;
 
 	public Campsite() {
 		super();
@@ -65,12 +66,32 @@ public class Campsite {
 		this.location = location;
 	}
 
-	public List<Comment> getComment() {
-		return comment;
+	public List<Comment> getComments() {
+		return comments;
 	}
 
-	public void setComment(List<Comment> comment) {
-		this.comment = comment;
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+	
+	public void addComment(Comment comment) {
+		if (comments == null) {
+			comments = new ArrayList<>();
+		}
+		if (!comments.contains(comment)) {
+			comments.add(comment);
+			if (comment.getCampsite() != null) {
+				comment.getCampsite().removeComment(comment);
+			}
+			comment.setCampsite(this);
+		}
+	}
+
+	public void removeComment(Comment comment) {
+		if (comments != null && comments.contains(comment))
+			;
+		comments.remove(comment);
+		comment.setCampsite(this);
 	}
 
 	@Override
