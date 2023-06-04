@@ -29,7 +29,6 @@ public class CampsiteServiceImpl implements CampsiteService {
 	@Override
 	public Campsite create(Campsite campsite) {
 		campsite.getLocation().setId(1);
-		System.out.println("Id here *****************" + campsite.getId() + campsite.getLocation().getId());
 		return repo.saveAndFlush(campsite);
 	}
 
@@ -56,8 +55,8 @@ public class CampsiteServiceImpl implements CampsiteService {
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		repo.deleteById(id);
+		return !repo.existsById(id);
 	}
 
 }

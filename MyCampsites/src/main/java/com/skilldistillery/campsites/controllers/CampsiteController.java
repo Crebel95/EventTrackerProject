@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,6 +52,14 @@ public class CampsiteController {
 	public Campsite updateCampsite(@RequestBody Campsite campsite,Location location, @PathVariable Integer id, HttpServletResponse resp) {
 		Campsite updated = campService.update(id, campsite, location);
 		return updated;
+	}
+	
+	@DeleteMapping("campsites/{id}")
+	public void deleteCampsite(@PathVariable int id, HttpServletResponse resp) {
+		boolean deleted = campService.delete(id);
+		if (deleted) {
+			resp.setStatus(204);
+		}
 	}
 
 }
