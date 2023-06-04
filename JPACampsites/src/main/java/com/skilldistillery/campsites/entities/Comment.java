@@ -29,6 +29,8 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name="campsite_id")
 	private Campsite campsite;
+	
+	private String username;
 
 	public Comment() {
 		super();
@@ -64,6 +66,16 @@ public class Comment {
 
 	public void setCampsite(Campsite campsite) {
 		this.campsite = campsite;
+	}
+	
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package com.skilldistillery.campsites.entities;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +20,9 @@ public class Location {
 	private String state;
 	
 	private String terrain;
+	
+	@Column(name="picture_url")
+	private String pictureUrl;
 
 	public Location() {
 		super();
@@ -54,6 +58,16 @@ public class Location {
 
 	public void setTerrain(String terrain) {
 		this.terrain = terrain;
+	}
+	
+	
+
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}
 
 	@Override
