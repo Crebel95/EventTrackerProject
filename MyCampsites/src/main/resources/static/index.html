@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Campsite Tracker</title>
+<script src="js/script.js"></script>
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<main class="container-fluid">
+<h1>Welcome to the Campsite Tracker!</h1>
+<div id="campsiteListDiv">
+<table>
+<thead>
+<tr>
+<th>Campsite ID</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody id="campsiteListTableBody"></tbody>
+</table>
+</div>
+
+<form name="campsiteForm">
+<input type="number" name="campsiteId">
+<button name="lookup"> Campsite by ID</button>
+</form>
+
+<div id="campsiteDetailsDiv"></div>
+
+<div id="campsiteFormDiv">
+<form name="newCampsiteForm">
+  <label for="name" > Campsite Name: </label>
+  <input type="text" id="name" name="name"> <br>
+  <label for="description" > Description:  </label>
+  <input type="text" id="description" name="description"> <br>
+  <label for="visitDate" > Visit Date: </label>
+  <input type="number" id="visitDate" name="visitDate"> <br>
+  <label for="pictureUrl" > Picture Url:</label>
+  <input type="text" id="pictureUrl" name="pictureUrl"> <br>
+
+ <button name="addCampsiteButton">Add a Campsite</button>
+</form>
+</div>
+
+<div id="campsiteUpdateDiv"></div>
+
+
+
+</main>
+</body>
+</html>

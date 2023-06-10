@@ -28,7 +28,7 @@ public class CampsiteServiceImpl implements CampsiteService {
 
 	@Override
 	public Campsite create(Campsite campsite) {
-		campsite.getLocation().setId(1);
+//		campsite.getLocation().setId(1);
 		return repo.saveAndFlush(campsite);
 	}
 
@@ -41,10 +41,10 @@ public class CampsiteServiceImpl implements CampsiteService {
 		updateCampsite.setDescription(campsite.getDescription());
 		updateCampsite.setVisitDate(campsite.getVisitDate());
 		updateCampsite.setPictureUrl(campsite.getPictureUrl());
-		updateCampsite.getLocation().setId(1);
-		updateCampsite.getLocation().setCity(location.getCity());
-		updateCampsite.getLocation().setState(location.getState());
-		updateCampsite.getLocation().setTerrain(location.getTerrain());
+//		updateCampsite.getLocation().setId(1);
+//		updateCampsite.getLocation().setCity(location.getCity());
+//		updateCampsite.getLocation().setState(location.getState());
+//		updateCampsite.getLocation().setTerrain(location.getTerrain());
 	    
 		return repo.saveAndFlush(updateCampsite);
 		}

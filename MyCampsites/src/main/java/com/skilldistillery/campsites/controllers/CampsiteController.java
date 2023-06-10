@@ -33,8 +33,8 @@ public class CampsiteController {
 	@GetMapping("campsites/{id}")
 	public Campsite getCampsite(@PathVariable Integer id, HttpServletResponse res) {
 		Campsite site = campService.getCampsite(id);
-		if(site == null) {
-			res.setStatus(404);
+		if(site != null) {
+			res.setStatus(200);
 		}
 		return site;
 	}
@@ -58,7 +58,7 @@ public class CampsiteController {
 	public void deleteCampsite(@PathVariable int id, HttpServletResponse resp) {
 		boolean deleted = campService.delete(id);
 		if (deleted) {
-			resp.setStatus(204);
+			resp.setStatus(200);
 		}
 	}
 
