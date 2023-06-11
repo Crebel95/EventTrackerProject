@@ -9,6 +9,15 @@
 <body>
 <main class="container-fluid">
 <h1>Welcome to the Campsite Tracker!</h1>
+
+
+<div id="searchBar">
+<form name="campsiteForm">
+<input type="number" name="campsiteId">
+<button name="lookup"> Campsite by ID</button>
+</form>
+</div>
+
 <div id="campsiteListDiv">
 <table>
 <thead>
@@ -21,23 +30,19 @@
 </table>
 </div>
 
-<form name="campsiteForm">
-<input type="number" name="campsiteId">
-<button name="lookup"> Campsite by ID</button>
-</form>
-
 <div id="campsiteDetailsDiv"></div>
 
 <div id="campsiteFormDiv">
 <form name="newCampsiteForm">
-  <label for="name" > Campsite Name: </label>
-  <input type="text" id="name" name="name"> <br>
-  <label for="description" > Description:  </label>
-  <input type="text" id="description" name="description"> <br>
-  <label for="visitDate" > Visit Date: </label>
-  <input type="number" id="visitDate" name="visitDate"> <br>
-  <label for="pictureUrl" > Picture Url:</label>
-  <input type="text" id="pictureUrl" name="pictureUrl"> <br>
+<h3>Add Campsite:</h3>
+  <label for="name" > </label>
+  <input type="text" id="name" name="name" placeholder="Campsite Name"> <br>
+  <label for="description" ></label>
+  <input type="text" id="description" name="description" placeholder="Description"> <br>
+  <label for="visitDate" > </label>
+  <input type="number" id="visitDate" name="visitDate" placeholder="Visit Date"> <br>
+  <label for="pictureUrl" ></label>
+  <input type="text" id="pictureUrl" name="pictureUrl" placeholder="Picture (URL)"> <br>
 
  <button name="addCampsiteButton">Add a Campsite</button>
 </form>

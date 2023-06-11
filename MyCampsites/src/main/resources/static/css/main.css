@@ -1,9 +1,31 @@
 @charset "UTF-8";
 
 body {
-	background-color: lightblue;
+	color: white;
+	background-color:  black;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url("https://www.usnews.com/dims4/USNEWS/4597852/2147483647/thumbnail/970x647/quality/85/?url=https%3A%2F%2Fwww.usnews.com%2Fcmsmedia%2Fa5%2Fc0%2Fa50e66754cb788ca2294c28c4819%2F1-intro-aspen-camping-stock.jpg")
 }
 
 .logoImageThumbnail {
 	height: 30px;
+}
+
+#campsiteListDiv {
+	border-style: ridge;
+	border-color: black;
+	width: 350px;
+	padding: 200;
+	color: white;
+}
+
+#campsiteFormDiv{
+	margin-top: 75px;
+	color: white;
+}
+
+#searchBar{
+	margin-top: 30px;
+	margin-bottom: 40px;
 }

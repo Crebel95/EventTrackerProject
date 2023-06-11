@@ -10,6 +10,7 @@ function init() {
 
 	//TODO: Load all events...
 	getAllCampsites();
+	
 
 	//TODO: Add event Listeners for existing buttons/forms etc...
 	document.campsiteForm.lookup.addEventListener('click', function(e) {
@@ -84,6 +85,8 @@ function displayAllCampsites(campsiteList) {
 			td = document.createElement('td');
 			td.textContent = campsite.name;
 			tr.appendChild(td);
+
+
 
 			tr.addEventListener('click', function(e) {
 				let campsiteId = campsite.id;
@@ -307,4 +310,6 @@ function updateCampsite(campsiteId, updatedCampsite) {
 	}
 	xhr.send(JSON.stringify(updatedCampsite));
 }
+
+
 
