@@ -13,7 +13,7 @@ function init() {
 
 	//TODO: Add event Listeners for existing buttons/forms etc...
 	document.campsiteForm.lookup.addEventListener('click', function(e) {
-		event.preventDefault();
+		e.preventDefault();
 		let campsiteId = document.campsiteForm.campsiteId.value;
 		console.log(campsiteId);
 		if (!isNaN(campsiteId) && campsiteId > 0) {
@@ -213,7 +213,7 @@ function addNewCampsite(newCampsite) {
 function deleteCampsite(campsiteId) {
 	let xhr = new XMLHttpRequest();
 	xhr.open('DELETE', 'api/campsites/' + campsiteId);
-	xhr.onreadystatechange = function() {
+	xhr.onreadystagechange = function() {
 		if (xhr.readyState === 4) {
 			if (xhr.status === 200) {
 				console.log('The delete had great success!');
@@ -223,6 +223,7 @@ function deleteCampsite(campsiteId) {
 			}
 		}
 	}
+	xhr.send();
 }
 
 function displayUpdateForm(campsiteId) {
