@@ -11,6 +11,7 @@ function init() {
 	//TODO: Load all events...
 	getAllCampsites();
 	
+	
 
 	//TODO: Add event Listeners for existing buttons/forms etc...
 	document.campsiteForm.lookup.addEventListener('click', function(e) {
@@ -65,6 +66,8 @@ function getAllCampsites() {
 function displayAllCampsites(campsiteList) {
 	let tbody = document.getElementById("campsiteListTableBody");
 	tbody.textContent = '';
+	
+	var count = 0;
 	if (campsiteList && Array.isArray(campsiteList)) {
 		for (let campsite of campsiteList) {
 			let tr = document.createElement('tr');
@@ -92,7 +95,12 @@ function displayAllCampsites(campsiteList) {
 				let campsiteId = campsite.id;
 				getCampsiteDetails(campsiteId);
 			});
-		}
+		count++;
+		} 
+		let h2 = document.createElement('h2');
+	    h2.textContent = 'Trips: ' + count;
+	    tbody.appendChild(h2);
+
 	}
 
 }
