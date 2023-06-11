@@ -49,7 +49,7 @@ class CommentTest {
 	@Test
 	void test_comment_camp_relationship() {
 		assertNotNull(comment);
-		assertEquals("Flagstaff",comment.getCampsite().getName());
+		assertEquals("Canyon Vista",comment.getCampsite().getName());
 	}
 	
 }

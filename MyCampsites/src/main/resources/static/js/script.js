@@ -257,7 +257,7 @@ function displayUpdateForm(campsiteId) {
 	input = document.createElement('input');
 	input.name = 'visitDate';
 	input.description = 'visitDate';
-	input.type = 'date';
+	input.type = 'text';
 	form.appendChild(input);
 
 	input = document.createElement('input');

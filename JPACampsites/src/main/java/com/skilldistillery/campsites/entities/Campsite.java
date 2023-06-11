@@ -28,7 +28,7 @@ public class Campsite {
 	private String description;
 	
 	@Column(name="visit_date")
-	private Date visitDate;
+	private String visitDate;
 	
 	@Column(name="picture_url")
 	private String pictureUrl;
@@ -68,11 +68,11 @@ public class Campsite {
 		this.description = description;
 	}
 
-	public Date getVisitDate() {
+	public String getVisitDate() {
 		return visitDate;
 	}
 
-	public void setVisitDate(Date visitDate) {
+	public void setVisitDate(String visitDate) {
 		this.visitDate = visitDate;
 	}
 

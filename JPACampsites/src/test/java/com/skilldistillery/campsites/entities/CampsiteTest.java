@@ -43,7 +43,7 @@ class CampsiteTest {
 	@Test
 	void test() {
 		assertNotNull(camp);
-		assertEquals("Flagstaff",camp.getName());
+		assertEquals("Canyon Vista",camp.getName());
 	}
 
 	@Test
