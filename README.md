@@ -4,10 +4,10 @@
 
 ## Overview
 
-This is a full-stack Java Spring project based on a Myswl database and implements REST API.
+This is a full-stack Java Spring project based on a Mysql database and implements REST API.
 
 This application allows a user to post their camping experiences to include information such as: 
-The campsite's name, location, description, terrain, and pictures.
+The campsite's name, description, terrain, and pictures. The user also has the ability to edit their trips that are already in the database or completely delete a posting. 
 
 ## Database
 
@@ -29,5 +29,12 @@ The campsite's name, location, description, terrain, and pictures.
 * JPA with Hibernate
 * JUnit
 * Mysql Workspace
+* PostMan
+* Spring Tools Suite
+* MAMP
 
 ### Lessons Learned
+
+For this project, I learned how crucial it is to come up with a solid plan before beginning your work. There were a few times that I had to change things in my database because the original content didn't work. If I would have spent more time in the planning stage, I would have saved myself time and trouble later on.
+
+I also learned a lot about using Javascript for setting up the front-end for projects. 
