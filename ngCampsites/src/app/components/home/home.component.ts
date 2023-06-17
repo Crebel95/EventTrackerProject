@@ -73,4 +73,17 @@ export class HomeComponent implements OnInit {
       },
     });
   }
+
+  deleteCampsite(id: number) {
+    this.campsiteService.destroy(id).subscribe({
+      next: () => {
+        // this.reload();
+      },
+      error: (err) => {
+        console.error("CampsiteComponent.deleteCampsite(): error deleting");
+        console.error(err);
+      },
+    });
+  }
+
 }

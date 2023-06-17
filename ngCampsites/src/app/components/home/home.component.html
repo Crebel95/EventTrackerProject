@@ -10,6 +10,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let campsite of campsiteList">
+        <td>
+          <img id="campsitePicture" [src]="campsite.pictureUrl"/>
+        </td>
 
         <td>{{campsite.id}}</td>
         <td (click)="displayCampsite(campsite)">{{campsite.name}}</td>
@@ -39,6 +42,7 @@
   <p>Visit Date {{selected.visitDate}}</p>
   <button class="btn btn-outline-info" (click)="displayTable()">Back</button>
   <button class="btn btn-outline-primary" (click)="setEditCampsite()">Edit</button>
+  <button class="btn btn-danger" (click)="deleteCampsite(selected.id)">Delete</button>
 </div>
 
 <div id="campsiteEdit" *ngIf="editCampsite" class="container">

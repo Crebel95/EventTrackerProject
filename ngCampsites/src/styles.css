@@ -1,1 +1,5 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+#campsitePicture{
+  height: 40px;
+}

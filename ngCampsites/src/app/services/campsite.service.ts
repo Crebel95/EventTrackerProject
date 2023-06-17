@@ -47,4 +47,19 @@ export class CampsiteService {
       })
     );
   }
+
+  destroy(id: number): Observable<void> {
+   return this.http.delete<void>(this.url + '/' + id).pipe(
+    catchError( (err: any) => {
+    console.error('Error deleting campsite');
+    return throwError(
+      () =>
+      new Error(
+        "error deleting campsite: " + err
+      )
+    );
+  }))
+  }
+
+
 }
