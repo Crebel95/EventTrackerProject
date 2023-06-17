@@ -1,0 +1,67 @@
+<h1>Welcome to My Campsites!</h1>
+
+<div id="campsiteListDiv">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let campsite of campsiteList">
+
+        <td>{{campsite.id}}</td>
+        <td (click)="displayCampsite(campsite)">{{campsite.name}}</td>
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+<form name="newCampsite" *ngIf="newCampsite">
+  <div class="row">
+   Name: <input class="col form-control" type="text" name="name" [(ngModel)]="newCampsite.name" />
+   Description:  <input class="col form-control" type="text" name="description" [(ngModel)]="newCampsite.description" />
+   Picture Url:  <input class="col form-control" type="text" name="pictureUrl" [(ngModel)]="newCampsite.pictureUrl" />
+   Visit Date:  <input class="col form-control" type="text" name="visitDate" [(ngModel)]="newCampsite.visitDate" />
+    <button class="col-auto btn btn-success" (click)="addCampsite(newCampsite)">Add Campsite</button>
+  </div>
+</form>
+
+<div id="todoCampsiteDiv" *ngIf="selected && ! editCampsite" class="container">
+  <h4>ID: {{selected.id}}</h4>
+  <p>{{selected.name}}</p>
+  <div>
+    <h5>Description:</h5>
+    {{selected.description}}
+  </div>
+  <p>Visit Date {{selected.visitDate}}</p>
+  <button class="btn btn-outline-info" (click)="displayTable()">Back</button>
+  <button class="btn btn-outline-primary" (click)="setEditCampsite()">Edit</button>
+</div>
+
+<div id="campsiteEdit" *ngIf="editCampsite" class="container">
+  <form>
+    <div class="row">
+      <label class="col-auto form-label" for="name">Name</label>
+      <input class="col form-control" type="text" name="name" [(ngModel)]="editCampsite.name" /> <br />
+    </div>
+    <div class="row">
+      <label class="col-auto form-label" for="description">Description</label>
+      <input class="col form-control" type="text" name="description" [(ngModel)]="editCampsite.description" />
+    </div>
+    <div class="form-check">
+      <label class="col form-check-label" for="pictureUrl">Picture Url</label>
+      <input class="col form-check-input" type="text" name="pictureUrl" [(ngModel)]="editCampsite.pictureUrl" />
+    </div>
+    <div class="form-check">
+      <label class="col form-check-label" for="visitDate">Visit Date</label>
+      <input class="col form-check-input" type="text" name="visitDate" [(ngModel)]="editCampsite.visitDate" />
+    </div>
+    <div class="row">
+      <button class="btn btn-info col-auto" (click)="editCampsite = null">Cancel</button>
+      <button class="btn btn-primary col-auto" (click)="updateCampsite(editCampsite)">Save</button>
+    </div>
+  </form>
+</div>
