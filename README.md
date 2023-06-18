@@ -24,6 +24,7 @@ The campsite's name, description, terrain, and pictures. The user also has the a
 | DELETE    | `/api/campsites/17`   |              | | **Delete** route |
 
 ### Technologies Used
+* Angular
 * Java
 * Sprint REST
 * JPA with Hibernate

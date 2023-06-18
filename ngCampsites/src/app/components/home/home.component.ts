@@ -19,6 +19,18 @@ export class HomeComponent implements OnInit {
     this.loadCampsites();
   }
 
+  reload() {
+    this.campsiteService.index().subscribe({
+      next: (campList) => {
+        this.campsiteList = campList;
+      },
+      error: (someError) => {
+        console.error("CampsiteListComponent.reload(): error getting campsite list");
+        console.error(someError);
+      },
+    });
+  }
+
   displayTable(): void {
     this.selected = null;
   }
@@ -47,7 +59,7 @@ export class HomeComponent implements OnInit {
     this.campsiteService.create(campsite).subscribe({
       next: (createdCampsite) => {
         this.newCampsite = new Campsite();
-        // this.reload();
+        this.reload();
       },
       error: (err) => {
         console.error(
@@ -65,7 +77,7 @@ export class HomeComponent implements OnInit {
           this.selected = updatedCampsite;
         }
         this.editCampsite = null;
-        // this.reload();
+        this.reload();
       },
       error: (err) => {
         console.error("CampsiteComponent.updateCampsite(): error on update");
@@ -77,7 +89,7 @@ export class HomeComponent implements OnInit {
   deleteCampsite(id: number) {
     this.campsiteService.destroy(id).subscribe({
       next: () => {
-        // this.reload();
+        this.reload();
       },
       error: (err) => {
         console.error("CampsiteComponent.deleteCampsite(): error deleting");

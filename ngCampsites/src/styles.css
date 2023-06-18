@@ -1,5 +1,23 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 #campsitePicture{
-  height: 40px;
+  height: 100px;
 }
+#displayCampsitePicture{
+  height: 400px;
+}
+#backButton{
+margin-top: 20px;
+margin-right: 10px;
+
+}
+#editButton{
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+#deleteButton{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+

@@ -1,9 +1,10 @@
-<h1>Welcome to My Campsites!</h1>
+<h1>Welcome to My Campsites! </h1> <h3>Current Campsite Count: {{campsiteList.length}}</h3>
 
-<div id="campsiteListDiv">
-  <table>
+<div id="campsiteListDiv" *ngIf="! selected">
+  <table class="table table-hover">
     <thead>
       <tr>
+        <th></th>
         <th>ID</th>
         <th>Name</th>
       </tr>
@@ -11,7 +12,7 @@
     <tbody>
       <tr *ngFor="let campsite of campsiteList">
         <td>
-          <img id="campsitePicture" [src]="campsite.pictureUrl"/>
+          <img id="campsitePicture" [src]="campsite.pictureUrl" (click)="displayCampsite(campsite)"/>
         </td>
 
         <td>{{campsite.id}}</td>
@@ -22,27 +23,38 @@
     </tbody>
   </table>
 </div>
-<form name="newCampsite" *ngIf="newCampsite">
+<form name="newCampsite" *ngIf="newCampsite" class="table table-hover" >
   <div class="row">
    Name: <input class="col form-control" type="text" name="name" [(ngModel)]="newCampsite.name" />
+   </div>
+  <div class="row">
    Description:  <input class="col form-control" type="text" name="description" [(ngModel)]="newCampsite.description" />
+  </div>
+   <div class="row">
    Picture Url:  <input class="col form-control" type="text" name="pictureUrl" [(ngModel)]="newCampsite.pictureUrl" />
-   Visit Date:  <input class="col form-control" type="text" name="visitDate" [(ngModel)]="newCampsite.visitDate" />
+  </div>
+  <div class="row">
+    Visit Date:  <input class="col form-control" type="text" name="visitDate" [(ngModel)]="newCampsite.visitDate" />
+  </div>
+  <div class="row">
     <button class="col-auto btn btn-success" (click)="addCampsite(newCampsite)">Add Campsite</button>
   </div>
 </form>
 
-<div id="todoCampsiteDiv" *ngIf="selected && ! editCampsite" class="container">
+<div id="CampsiteDiv" *ngIf="selected && ! editCampsite" class="container">
+
+    <img id="displayCampsitePicture" [src]="selected.pictureUrl"/>
+
   <h4>ID: {{selected.id}}</h4>
-  <p>{{selected.name}}</p>
+  <h5>Name: {{selected.name}}</h5>
   <div>
     <h5>Description:</h5>
     {{selected.description}}
   </div>
   <p>Visit Date {{selected.visitDate}}</p>
-  <button class="btn btn-outline-info" (click)="displayTable()">Back</button>
-  <button class="btn btn-outline-primary" (click)="setEditCampsite()">Edit</button>
-  <button class="btn btn-danger" (click)="deleteCampsite(selected.id)">Delete</button>
+  <button id="backButton" class="btn btn-outline-info" (click)="displayTable()">Back</button>
+  <button id="editButton" class="btn btn-outline-primary" (click)="setEditCampsite()">Edit</button>
+  <button id="deleteButton" class="btn btn-danger" (click)="deleteCampsite(selected.id)">Delete</button>
 </div>
 
 <div id="campsiteEdit" *ngIf="editCampsite" class="container">
@@ -60,7 +72,7 @@
       <input class="col form-check-input" type="text" name="pictureUrl" [(ngModel)]="editCampsite.pictureUrl" />
     </div>
     <div class="form-check">
-      <label class="col form-check-label" for="visitDate">Visit Date</label>
+      <label class="col form-check-label" for="visitDate">Visit Date: </label>
       <input class="col form-check-input" type="text" name="visitDate" [(ngModel)]="editCampsite.visitDate" />
     </div>
     <div class="row">
